@@ -1,0 +1,12 @@
+version: "3.2"
+services:
+  documentation-httpd:
+    build: .
+    hostname: documentation-httpd
+    container_name: documentation-httpd
+    restart: unless-stopped
+    ports:
+      - 38080:80
+    volumes:
+      - ./volumes/documentation-httpd:/usr/local/apache2/htdocs/
+      - ./volumes/documentation-httpd/conf/:/usr/local/apache2/conf/abes/
