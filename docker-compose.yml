@@ -10,3 +10,12 @@ services:
     volumes:
       - ./volumes/documentation-httpd:/usr/local/apache2/htdocs/
       - ./volumes/documentation-httpd/conf/:/usr/local/apache2/conf/abes/
+  documentation-swich-e:
+    build: ./swich-e/.
+    hostname: documentation-swich-e
+    container_name: documentation-swich-e
+    restart: unless-stopped
+    volumes:
+      - ./volumes/documentation-swich-e:/opt/guide/data-swish-e/
+    ports:
+      - 38081:81
