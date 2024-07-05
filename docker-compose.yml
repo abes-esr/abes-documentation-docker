@@ -1,21 +1,25 @@
 version: "3.2"
 services:
-  documentation-httpd:
+  documentation-web:
     build: .
-    hostname: documentation-httpd
-    container_name: documentation-httpd
+    hostname: documentation-web
+    container_name: documentation-web
     restart: unless-stopped
     ports:
       - 38080:80
     volumes:
-      - ./volumes/documentation-httpd:/usr/local/apache2/htdocs/
-      - ./volumes/documentation-httpd/conf/:/usr/local/apache2/conf/abes/
-  documentation-swich-e:
-    build: ./swich-e/.
-    hostname: documentation-swich-e
-    container_name: documentation-swich-e
+      - ./volumes/documentation-web:/usr/local/apache2/htdocs/
+      - ./volumes/documentation-web/conf/abes/:/usr/local/apache2/conf/abes/
+  documentation-gm-swish-e:
+    image: abesesr/swish-e-docker:1.1.1
+    hostname: documentation-gm-swish-e
+    container_name: documentation-gm-swish-e
     restart: unless-stopped
-    volumes:
-      - ./volumes/documentation-swich-e:/opt/guide/data-swish-e/
     ports:
-      - 38081:81
+      - 38081:80
+    volumes:
+      - ./volumes/documentation-gm-swish-e/html/:/var/ww/html/
+      - ./volumes/documentation-gm-swish-e/data-swish-e/swish.cgi:/usr/lib/cgi-bin/swish.cgi
+      - ./volumes/documentation-gm-swish-e/data-swish-e/TemplateDefault.pm:/usr/lib/swish-e/perl/SWISH/TemplateDefault.pm
+      - ./volumes/documentation-gm-swish-e/data-swish-e/.swishcgi.conf:/usr/lib/cgi-bin/.swishcgi.conf
+      - ./volumes/documentation-gm-swish-e/data-swish-e/:/opt/guide/data-swish-e/
