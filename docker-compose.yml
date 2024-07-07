@@ -8,7 +8,7 @@ services:
     ports:
       - 38080:80
     volumes:
-      - ./volumes/documentation-web:/usr/local/apache2/htdocs/
+      - ./volumes/documentation-web/var_www_html/:/usr/local/apache2/htdocs/
       - ./volumes/documentation-web/conf/abes/:/usr/local/apache2/conf/abes/
   documentation-gm-swish-e:
     image: abesesr/swish-e-docker:1.1.1
@@ -18,8 +18,9 @@ services:
     ports:
       - 38081:80
     volumes:
-      - ./volumes/documentation-gm-swish-e/html/:/var/ww/html/
-      - ./volumes/documentation-gm-swish-e/data-swish-e/swish.cgi:/usr/lib/cgi-bin/swish.cgi
-      - ./volumes/documentation-gm-swish-e/data-swish-e/TemplateDefault.pm:/usr/lib/swish-e/perl/SWISH/TemplateDefault.pm
-      - ./volumes/documentation-gm-swish-e/data-swish-e/.swishcgi.conf:/usr/lib/cgi-bin/.swishcgi.conf
-      - ./volumes/documentation-gm-swish-e/data-swish-e/:/opt/guide/data-swish-e/
+      - ./volumes/documentation-web/var_www_html/guide/html/:/var/www/html/
+      - ./volumes/documentation-gm-swish-e/conf-swish-e/swish.cgi:/usr/lib/cgi-bin/swish.cgi
+      - ./volumes/documentation-gm-swish-e/conf-swish-e/TemplateDefault.pm:/usr/lib/swish-e/perl/SWISH/TemplateDefault.pm
+      - ./volumes/documentation-gm-swish-e/conf-swish-e/.swishcgi.conf:/usr/lib/cgi-bin/.swishcgi.conf
+      - ./volumes/documentation-gm-swish-e/index-swish-e/:/opt/guide/data-swish-e/
+      - ./volumes/documentation-gm-swish-e/scripts-swish-e/:/opt/guide/data-swish-e/scripts/
