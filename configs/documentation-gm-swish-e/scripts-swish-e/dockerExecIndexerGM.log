@@ -1,0 +1,105 @@
+Indexing Data Source: "File-System"
+Indexing "."
+Broken OLE structure. Cannot find root entry in this file!
+Broken OLE file. Try using -b switch
+Syntax Warning: Invalid least number of objects reading page offset hints table
+This file looks like ZIP archive or Office 2007 or later file.
+Not supported by catdoc
+This file looks like ZIP archive or Office 2007 or later file.
+Not supported by catdoc
+This file looks like ZIP archive or Office 2007 or later file.
+Not supported by catdoc
+This file looks like ZIP archive or Office 2007 or later file.
+Not supported by catdoc
+This file looks like ZIP archive or Office 2007 or later file.
+Not supported by catdoc
+This file looks like ZIP archive or Office 2007 or later file.
+Not supported by catdoc
+This file looks like ZIP archive or Office 2007 or later file.
+Not supported by catdoc
+Syntax Warning: Invalid least number of objects reading page offset hints table
+Syntax Warning: Invalid least number of objects reading page offset hints table
+Syntax Warning: Invalid least number of objects reading page offset hints table
+Broken OLE structure. Cannot find root entry in this file!
+Broken OLE file. Try using -b switch
+
+Warning: filter 'catdoc' exited with non-zero status: [1]
+
+Warning: filter 'catdoc' exited with non-zero status: [1]
+
+Warning: filter 'catdoc' exited with non-zero status: [1]
+
+Warning: filter 'catdoc' exited with non-zero status: [1]
+
+Warning: filter 'catdoc' exited with non-zero status: [1]
+
+Warning: filter 'catdoc' exited with non-zero status: [1]
+
+Warning: filter 'catdoc' exited with non-zero status: [1]
+
+Warning: filter 'catdoc' exited with non-zero status: [1]
+
+Warning: filter 'catdoc' exited with non-zero status: [1]
+Removing very common words...
+no words removed.
+Writing main index...
+Sorting words ...
+Sorting 66,898 words alphabetically
+Writing header ...
+Writing index entries ...
+  Writing word text: ...  Writing word text:  10%  Writing word text:  20%  Writing word text:  30%  Writing word text:  40%  Writing word text:  50%  Writing word text:  60%  Writing word text:  70%  Writing word text:  80%  Writing word text:  90%  Writing word text: 100%  Writing word text: Complete
+  Writing word hash: ...  Writing word hash:  10%  Writing word hash:  20%  Writing word hash:  30%  Writing word hash:  40%  Writing word hash:  50%  Writing word hash:  60%  Writing word hash:  70%  Writing word hash:  80%  Writing word hash:  90%  Writing word hash: 100%  Writing word hash: Complete
+  Writing word data: ...  Writing word data:   9%  Writing word data:  19%  Writing word data:  29%  Writing word data:  39%  Writing word data:  49%  Writing word data:  59%  Writing word data:  69%  Writing word data:  79%  Writing word data:  89%  Writing word data:  99%  Writing word data: Complete
+66,898 unique words indexed.
+Sorting property: swishdocpath                            Sorting property: swishtitle                              Sorting property: swishdocsize                            Sorting property: swishlastmodified                       Sorting property: swishdescription                        5 properties sorted.                                              
+2,960 files indexed.  336,266,464 total bytes.  2,556,208 total words.
+Elapsed time: 00:00:12 CPU time: 00:00:05
+Indexing done!
+indexation tout terminee
+Indexing Data Source: "File-System"
+Indexing "."
+Broken OLE structure. Cannot find root entry in this file!
+Broken OLE file. Try using -b switch
+Broken OLE structure. Cannot find root entry in this file!
+Broken OLE file. Try using -b switch
+
+Warning: filter 'catdoc' exited with non-zero status: [1]
+
+Warning: filter 'catdoc' exited with non-zero status: [1]
+Removing very common words...
+no words removed.
+Writing main index...
+Sorting words ...
+Sorting 59,161 words alphabetically
+Writing header ...
+Writing index entries ...
+  Writing word text: ...  Writing word text:  10%  Writing word text:  20%  Writing word text:  30%  Writing word text:  40%  Writing word text:  50%  Writing word text:  60%  Writing word text:  70%  Writing word text:  80%  Writing word text:  90%  Writing word text: 100%  Writing word text: Complete
+  Writing word hash: ...  Writing word hash:  10%  Writing word hash:  20%  Writing word hash:  30%  Writing word hash:  40%  Writing word hash:  50%  Writing word hash:  60%  Writing word hash:  70%  Writing word hash:  80%  Writing word hash:  90%  Writing word hash: 100%  Writing word hash: Complete
+  Writing word data: ...  Writing word data:   9%  Writing word data:  19%  Writing word data:  29%  Writing word data:  39%  Writing word data:  49%  Writing word data:  59%  Writing word data:  69%  Writing word data:  79%  Writing word data:  89%  Writing word data:  99%  Writing word data: Complete
+59,161 unique words indexed.
+Sorting property: swishdocpath                            Sorting property: swishtitle                              Sorting property: swishdocsize                            Sorting property: swishlastmodified                       Sorting property: swishdescription                        5 properties sorted.                                              
+819 files indexed.  89,919,312 total bytes.  1,195,966 total words.
+Elapsed time: 00:00:05 CPU time: 00:00:02
+Indexing done!
+indexation catalogage terminee
+Indexing Data Source: "File-System"
+Indexing "manuels"
+Syntax Warning: Invalid least number of objects reading page offset hints table
+Syntax Warning: Invalid least number of objects reading page offset hints table
+Syntax Warning: Invalid least number of objects reading page offset hints table
+Removing very common words...
+no words removed.
+Writing main index...
+Sorting words ...
+Sorting 16,441 words alphabetically
+Writing header ...
+Writing index entries ...
+  Writing word text: ...  Writing word text:  10%  Writing word text:  20%  Writing word text:  30%  Writing word text:  40%  Writing word text:  50%  Writing word text:  60%  Writing word text:  70%  Writing word text:  80%  Writing word text:  90%  Writing word text: 100%  Writing word text: Complete
+  Writing word hash: ...  Writing word hash:  10%  Writing word hash:  20%  Writing word hash:  30%  Writing word hash:  40%  Writing word hash:  50%  Writing word hash:  60%  Writing word hash:  70%  Writing word hash:  80%  Writing word hash:  90%  Writing word hash: 100%  Writing word hash: Complete
+  Writing word data: ...  Writing word data:   9%  Writing word data:  19%  Writing word data:  29%  Writing word data:  39%  Writing word data:  49%  Writing word data:  59%  Writing word data:  69%  Writing word data:  79%  Writing word data:  89%  Writing word data:  99%  Writing word data: Complete
+16,441 unique words indexed.
+Sorting property: swishdocpath                            Sorting property: swishtitle                              Sorting property: swishdocsize                            Sorting property: swishlastmodified                       Sorting property: swishdescription                        5 properties sorted.                                              
+1,944 files indexed.  36,302,845 total bytes.  1,034,627 total words.
+Elapsed time: 00:00:02 CPU time: 00:00:02
+Indexing done!
+indexation manuels terminee
