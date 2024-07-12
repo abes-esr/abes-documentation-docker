@@ -13,7 +13,7 @@ services:
     volumes:
       - ./volumes/documentation-web/var_www_html/:/usr/local/apache2/htdocs/
         # choose between var_www_html_index-dev.htm, var_www_html_index-test.htm and var_www_html_index-prod.htm with env variable in .env_dist (by default it's "dev")
-      - ./configs/documentation-web/var_www_html_index-${DOCUMENTATION_ENV:-dev}.html:/usr/local/apache2/htdocs/index.html
+        #- ./configs/documentation-web/var_www_html_index-${DOCUMENTATION_ENV:-dev}.html:/usr/local/apache2/htdocs/index.html
       - ./configs/documentation-web/abes_apache_conf/:/usr/local/apache2/conf/abes/
   documentation-gm-swish-e:
     image: abesesr/swish-e-docker:1.1.1
@@ -33,3 +33,35 @@ services:
       - ./configs/documentation-gm-swish-e/conf-swish-e/.swishcgi-${DOCUMENTATION_ENV:-dev}.conf:/usr/lib/cgi-bin/.swishcgi.conf
       - ./configs/documentation-gm-swish-e/index-swish-e/:/opt/guide/data-swish-e/
       - ./configs/documentation-gm-swish-e/scripts-swish-e/:/opt/guide/data-swish-e/scripts/
+  documentation-webdav:
+    image: bytemark/webdav:2.4
+    mem_limit: ${DOCUMENTATION_WEBDAV_MEM_LIMIT:-5g}
+    memswap_limit: ${DOCUMENTATION_WEBDAV_MEMSWAP_LIMITi:-5g}
+    cpus: ${DOCUMENTATION_WEBDAV_CPU_LIMIT:-5}
+    hostname: documentation-webdav
+    container_name: documentation-webdav
+    restart: unless-stopped
+    ports:
+      - "38082:80"
+    environment:
+      AUTH_TYPE: Digest
+      USERNAME: ${DOCUMENTATION_WEBDAV_USERNAME}
+      PASSWORD: ${DOCUMENTATION_WEBDAV_PASSWORD}
+      LOCATION: /webdav
+    volumes:
+      - ./volumes/documentation-web/var_www_html/:/var/lib/dav/data/
+     # - ./configs/documentation-webdav/dav.conf:/usr/local/apache2/conf/conf-enabled/dav.conf:rwx
+  documentation-rp:
+    hostname: documentation-rp
+    container_name: documentation-rp
+    restart: unless-stopped
+    image: nginx:latest
+    ports:
+      - 38089:80
+    volumes:
+      - ./configs/documentation-rp/default.conf:/etc/nginx/conf.d/default.conf
+      - ./configs/documentation-rp/nginx.conf:/etc/nginx/nginx.conf
+    depends_on:
+      - documentation-web
+      - documentation-gm-swish-e
+      - documentation-webdav
