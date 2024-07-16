@@ -48,9 +48,11 @@ services:
       USERNAME: ${DOCUMENTATION_WEBDAV_USERNAME}
       PASSWORD: ${DOCUMENTATION_WEBDAV_PASSWORD}
       LOCATION: /webdav
+      REALM: ${REALM}
     volumes:
       - ./volumes/documentation-web/var_www_html/:/var/lib/dav/data/
-     # - ./configs/documentation-webdav/dav.conf:/usr/local/apache2/conf/conf-enabled/dav.conf:rwx
+      - ./configs/documentation-webdav/abes-dav.conf:/usr/local/apache2/conf/conf-available/dav.conf
+      - ./configs/documentation-webdav/docker-entrypoint.sh:/usr/local/bin/docker-entrypoint.sh
   documentation-rp:
     hostname: documentation-rp
     container_name: documentation-rp
