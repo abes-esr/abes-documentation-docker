@@ -13,7 +13,7 @@ services:
     volumes:
       - ./volumes/documentation-web/var_www_html/:/usr/local/apache2/htdocs/
         # choose between var_www_html_index-dev.htm, var_www_html_index-test.htm and var_www_html_index-prod.htm with env variable in .env_dist (by default it's "dev")
-        #- ./configs/documentation-web/var_www_html_index-${DOCUMENTATION_ENV:-dev}.html:/usr/local/apache2/htdocs/index.html
+      - ./configs/documentation-web/var_www_html_index-${DOCUMENTATION_ENV:-dev}.html:/usr/local/apache2/htdocs/index.html
       - ./configs/documentation-web/abes_apache_conf/:/usr/local/apache2/conf/abes/
   documentation-gm-swish-e:
     image: abesesr/swish-e-docker:1.1.1
