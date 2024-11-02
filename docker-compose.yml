@@ -16,7 +16,8 @@ services:
       - ./configs/documentation-web/var_www_html_index-${DOCUMENTATION_ENV:-dev}.html:/usr/local/apache2/htdocs/index.html
       - ./configs/documentation-web/abes_apache_conf/:/usr/local/apache2/conf/abes/
   documentation-gm-swish-e:
-    image: abesesr/swish-e-docker:1.1.1
+    build: ./Dockerfile-swish-e/
+    #image: abesesr/swish-e-docker:1.1.1
     mem_limit: ${DOCUMENTATION_GM_SWISHE_MEM_LIMIT:-5g}
     memswap_limit: ${DOCUMENTATION_GM_SWISHE_MEMSWAP_LIMITi:-5g}
     cpus: ${DOCUMENTATION_GM_SWISHE_CPU_LIMIT:-5}
