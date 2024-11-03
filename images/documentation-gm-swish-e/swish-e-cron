@@ -1,5 +1,4 @@
 # must be ended with a new line "LF" (Unix) and not "CRLF" (Windows)
-35 17 * * * /opt/guide/data-swish-e/scripts/indexerGM.sh >> /var/log/cron.log 2>&1
-* * * * * echo "Hello world" >> /var/log/cron.log 2>&1
+30 20 * * * /opt/guide/data-swish-e/scripts/indexerGM.sh >> /var/log/cron.log 2>&1
 # An empty line is required at the end of this file for a valid cron file.
 
