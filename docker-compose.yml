@@ -31,7 +31,9 @@ services:
       - ./configs/documentation-gm-swish-e/conf-swish-e/TemplateDefault.pm:/usr/lib/swish-e/perl/SWISH/TemplateDefault.pm
         # choose between .swishcgi-dev.conf, .swishcgi-test.conf and .swishcgi-prod.conf with env variable in .env_dist (by default it's "dev")
       - ./configs/documentation-gm-swish-e/conf-swish-e/.swishcgi-${DOCUMENTATION_ENV:-dev}.conf:/usr/lib/cgi-bin/.swishcgi.conf
-      - ./configs/documentation-gm-swish-e/index-swish-e/:/opt/guide/data-swish-e/
+      - ./configs/documentation-gm-swish-e/index-swish-e/swishCatalogage.conf:/opt/guide/data-swish-e/swishCatalogage.conf
+      - ./configs/documentation-gm-swish-e/index-swish-e/swishPourManuels.conf:/opt/guide/data-swish-e/swishPourManuels.conf
+      - ./configs/documentation-gm-swish-e/index-swish-e/swishTout.conf:/opt/guide/data-swish-e/swishTout.conf
       - ./configs/documentation-gm-swish-e/scripts-swish-e/:/opt/guide/data-swish-e/scripts/
   documentation-webdav:
     image: bytemark/webdav:2.4
