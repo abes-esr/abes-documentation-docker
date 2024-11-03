@@ -63,7 +63,7 @@ services:
     ports:
       - 38089:80
     volumes:
-      - ./configs/documentation-rp/default.conf:/etc/nginx/conf.d/default.conf
+      - ./configs/documentation-rp/default${DOCUMENTATION_ENV:-dev}.conf:/etc/nginx/conf.d/default.conf
     depends_on:
       - documentation-web
       - documentation-gm-swish-e
