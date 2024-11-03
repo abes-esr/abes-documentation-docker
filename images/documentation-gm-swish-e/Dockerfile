@@ -16,6 +16,9 @@ RUN touch /var/log/cron.log
 
 # Redirect cronjob log to docker log collector
 RUN ln -sf /proc/$$/fd/1 /var/log/cron.log
- 
+
+ENV TZ=Europe/Paris
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone 
+
 # Run updating indexes, crontab and apache
 CMD /opt/guide/data-swish-e/scripts/indexerGM.sh && cron && apachectl -DFOREGROUND
