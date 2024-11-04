@@ -38,7 +38,7 @@ services:
   documentation-webdav:
     image: bytemark/webdav:2.4
     mem_limit: ${DOCUMENTATION_WEBDAV_MEM_LIMIT:-5g}
-    memswap_limit: ${DOCUMENTATION_WEBDAV_MEMSWAP_LIMITi:-5g}
+    memswap_limit: ${DOCUMENTATION_WEBDAV_MEMSWAP_LIMIT:-5g}
     cpus: ${DOCUMENTATION_WEBDAV_CPU_LIMIT:-5}
     hostname: documentation-webdav
     container_name: documentation-webdav
@@ -55,6 +55,21 @@ services:
       - ./volumes/documentation-web/var_www_html/:/var/lib/dav/data/
       - ./configs/documentation-webdav/abes-dav.conf:/usr/local/apache2/conf/conf-available/dav.conf
       - ./configs/documentation-webdav/docker-entrypoint.sh:/usr/local/bin/docker-entrypoint.sh
+  documentation-sftp:
+    build: ./images/documentation-sftp/
+    mem_limit: ${DOCUMENTATION_SFTP_MEM_LIMIT:-5g}
+    memswap_limit: ${DOCUMENTATION_SFTP_MEMSWAP_LIMIT:-5g}
+    cpus: ${DOCUMENTATION_SFTP_CPU_LIMIT:-5}
+    hostname: documentation-sftp
+    container_name: documentation-sftp
+    restart: unless-stopped
+    ports:
+      - "2222:22"
+    environment:
+      USER_NAME: ${DOCUMENTATION_SFTP_USERNAME}
+      USER_PASS: ${DOCUMENTATION_SFTP_PASSWORD}
+    volumes:
+      - ./volumes/documentation-web/var_www_html/:/home/${DOCUMENTATION_SFTP_USERNAME}/sftp/html/
   documentation-rp:
     hostname: documentation-rp
     container_name: documentation-rp
