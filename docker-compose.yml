@@ -1,6 +1,9 @@
 services:
   documentation-web:
-    build: ./images/documentation-web/
+    build:
+      context: ./images/documentation-web/
+      args:
+        SSH_PRIVATE_KEY: ${SSH_PRIVATE_KEY}
     mem_limit: ${DOCUMENTATION_WEB_MEM_LIMIT:-5g}
     memswap_limit: ${DOCUMENTATION_WEB_MEMSWAP_LIMITi:-5g}
     cpus: ${DOCUMENTATION_WEB_CPU_LIMIT:-5}

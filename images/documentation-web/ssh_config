@@ -1,0 +1,4 @@
+Host git.abes.fr
+    IdentityFile ~/.ssh/id_rsa
+    StrictHostKeyChecking no
+    PreferredAuthentications publickey
