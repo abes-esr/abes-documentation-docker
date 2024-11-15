@@ -70,6 +70,8 @@ services:
     environment:
       USER_NAME: ${DOCUMENTATION_SFTP_USERNAME}
       USER_PASS: ${DOCUMENTATION_SFTP_PASSWORD}
+      SFTP_UID : ${DOCUMENTATION_SFTP_UID}
+      SFTP_GID : ${DOCUMENTATION_SFTP_GID}
     volumes:
       - ./volumes/documentation-web/var_www_html/:/home/${DOCUMENTATION_SFTP_USERNAME}/sftp/html/
   documentation-rp:
