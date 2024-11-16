@@ -11,15 +11,10 @@ RUN set -eux; \
     apt-get clean; \
     rm -rf /var/lib/apt/lists/*
 
-# Créer le répertoire .ssh
+# Create .ssh directory
 RUN mkdir -p /root/.ssh && chmod 700 /root/.ssh
 
-# Injecter la clé privée depuis une variable d'environnement
-ARG SSH_PRIVATE_KEY
-RUN echo "$SSH_PRIVATE_KEY" > /root/.ssh/id_rsa && \
-    chmod 600 /root/.ssh/id_rsa
-
-# Copier le fichier de configuration SSH
+# Copy SSH configuration files
 COPY ssh_config /root/.ssh/config
 
 # Copy autocommit.sh script
@@ -41,13 +36,17 @@ RUN crontab /etc/cron.d/autocommit-cron
 RUN touch /var/log/cron.log
 
 # Redirect cronjob log to docker log collector
-RUN ln -sf /proc/$$/fd/1 /var/log/cron.log
+RUN ln -sf /proc/1/fd/1 /var/log/cron.log
 
 ENV TZ=Europe/Paris
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 COPY ./httpd.conf /usr/local/apache2/conf/httpd.conf
 RUN mkdir -p /usr/local/apache2/conf/abes/ 
+
+# Inject SSH private key
+COPY ./docker-entrypoint.sh /docker-entrypoint.sh
+ENTRYPOINT ["/docker-entrypoint.sh"]
 
 # Run crontab and apache
 CMD cron && apachectl -DFOREGROUND

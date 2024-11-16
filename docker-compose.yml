@@ -1,9 +1,6 @@
 services:
   documentation-web:
-    build:
-      context: ./images/documentation-web/
-      args:
-        SSH_PRIVATE_KEY: ${SSH_PRIVATE_KEY}
+    build: ./images/documentation-web/
     mem_limit: ${DOCUMENTATION_WEB_MEM_LIMIT:-5g}
     memswap_limit: ${DOCUMENTATION_WEB_MEMSWAP_LIMITi:-5g}
     cpus: ${DOCUMENTATION_WEB_CPU_LIMIT:-5}
@@ -12,6 +9,8 @@ services:
     restart: unless-stopped
     ports:
       - 38080:80
+    environment:
+        SSH_PRIVATE_KEY: ${SSH_PRIVATE_KEY}
     volumes:
       - ./volumes/documentation-web/var_www_html/:/usr/local/apache2/htdocs/
         # choose between var_www_html_index-dev.htm, var_www_html_index-test.htm and var_www_html_index-prod.htm with env variable in .env_dist (by default it's "dev")
