@@ -1,9 +1,9 @@
 #!/bin/bash
 set -e
+
 if [ -n "$SSH_PRIVATE_KEY" ]; then
     echo "Injecting private SSH key into /root/.ssh/id_rsa..."
     
-    # SSH_PRIVATE_KEY=${SSH_PRIVATE_KEY}
     echo "$SSH_PRIVATE_KEY" > /root/.ssh/id_rsa
     chmod 600 /root/.ssh/id_rsa
 
