@@ -15,7 +15,7 @@ RUN crontab /etc/cron.d/swish-e-cron
 RUN touch /var/log/cron.log
 
 # Redirect cronjob log to docker log collector
-RUN ln -sf /proc/$$/fd/1 /var/log/cron.log
+RUN ln -sf /proc/1/fd/1 /var/log/cron.log
 
 ENV TZ=Europe/Paris
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone 
