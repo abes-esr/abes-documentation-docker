@@ -2,7 +2,6 @@ services:
   documentation-web:
     build: ./images/documentation-web/
     mem_limit: ${DOCUMENTATION_WEB_MEM_LIMIT:-5g}
-    memswap_limit: ${DOCUMENTATION_WEB_MEMSWAP_LIMITi:-5g}
     cpus: ${DOCUMENTATION_WEB_CPU_LIMIT:-5}
     hostname: documentation-web
     container_name: documentation-web
@@ -19,7 +18,6 @@ services:
   documentation-gm-swish-e:
     build: ./images/documentation-gm-swish-e/
     mem_limit: ${DOCUMENTATION_GM_SWISHE_MEM_LIMIT:-5g}
-    memswap_limit: ${DOCUMENTATION_GM_SWISHE_MEMSWAP_LIMITi:-5g}
     cpus: ${DOCUMENTATION_GM_SWISHE_CPU_LIMIT:-5}
     hostname: documentation-gm-swish-e
     container_name: documentation-gm-swish-e
@@ -39,7 +37,6 @@ services:
   documentation-webdav:
     image: bytemark/webdav:2.4
     mem_limit: ${DOCUMENTATION_WEBDAV_MEM_LIMIT:-5g}
-    memswap_limit: ${DOCUMENTATION_WEBDAV_MEMSWAP_LIMIT:-5g}
     cpus: ${DOCUMENTATION_WEBDAV_CPU_LIMIT:-5}
     hostname: documentation-webdav
     container_name: documentation-webdav
@@ -59,7 +56,6 @@ services:
   documentation-sftp:
     build: ./images/documentation-sftp/
     mem_limit: ${DOCUMENTATION_SFTP_MEM_LIMIT:-5g}
-    memswap_limit: ${DOCUMENTATION_SFTP_MEMSWAP_LIMIT:-5g}
     cpus: ${DOCUMENTATION_SFTP_CPU_LIMIT:-5}
     hostname: documentation-sftp
     container_name: documentation-sftp
