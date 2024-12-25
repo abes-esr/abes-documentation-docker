@@ -30,7 +30,7 @@ cd /opt/pod/
 git clone https://github.com/abes-esr/abes-documentation-docker.git
 ```
 
-Configurer l'application depuis l'exemple du [fichier ``.env_dist``](./.env_dist) (ce fichier contient la liste des variables) :
+Configurer l'application depuis l'exemple du fichier [``.env_dist``](./.env_dist) (ce fichier contient la liste des variables) :
 ```bash
 cd /opt/pod/abes-documentation-docker/
 cp .env-dist .env
