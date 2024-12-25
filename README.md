@@ -106,7 +106,7 @@ Les éléments suivants sont à sauvegarder:
 
   A noter que le répertoire /opt/pod/abes-documentation-docker/volumes/documentation-web/var_www_html est versionné automatiquement tous les soirs à 21:30 vers notre GitLab (https://git.abes.fr)
   
-  Les dépôts GIT correspondants aux déploiements en dev, test et prod de documentation.abes.fr sont les suivantes :
+  Les dépôts GIT correspondants aux déploiements en dev, test et prod de documentation.abes.fr sont les suivants :
 
 - dev :
   - https://git.abes.fr/sire/documentation-dev.abes.fr
