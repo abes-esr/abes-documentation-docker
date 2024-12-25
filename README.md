@@ -30,7 +30,7 @@ cd /opt/pod/
 git clone https://github.com/abes-esr/abes-documentation-docker.git
 ```
 
-Configurer l'application depuis l'exemple du [fichier ``.env-dist``](./.env-dist) (ce fichier contient la liste des variables) :
+Configurer l'application depuis l'exemple du [fichier ``.env_dist``](./.env_dist) (ce fichier contient la liste des variables) :
 ```bash
 cd /opt/pod/abes-documentation-docker/
 cp .env-dist .env
@@ -81,7 +81,7 @@ Pour ajuster l'allocation de ressources pour les conteneurs (par exemple, mémoi
 
 Le moteur de recherche est basé sur le logiciel **swish-e**, intégré à l'aide de l'image Docker suivante : ``abesesr/swish-e-docker:1.1.1.``
 ### Processus d'indexation ###
-'indexation est déclenchée par le script ``/opt/guide/data-swish-e/scripts/indexerGM.sh``. Ce script est exécuté lors du démarrage du conteneur via le Dockerfile. Un délai de quelques secondes est nécessaire lors du lancement du conteneur pour que l'indexation soit finalisée et que le service devienne opérationnel.
+L'indexation est déclenchée par le script ``/opt/guide/data-swish-e/scripts/indexerGM.sh``. Ce script est exécuté lors du démarrage du conteneur via le Dockerfile. Un délai de quelques secondes est nécessaire lors du lancement du conteneur pour que l'indexation soit finalisée et que le service devienne opérationnel.
 ### Réindexation automatique ###
 Une tâche planifiée (cron) est configurée pour réindexer les données tous les soir à 20:30.
 ```bash
