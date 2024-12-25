@@ -77,6 +77,27 @@ Pour ajuster l'allocation de ressources pour les conteneurs (par exemple, mémoi
 - `DOCUMENTATION_SFTP_GID` : Définit le GID utilisé pour l'accès SFTP. Si SFTP et WebDAV sont tous deux activés, il est recommandé de définir ce GID de manière identique à celui utilisé par WebDAV afin d'éviter les conflits de permissions.
 - `DOCUMENTATION_WEB_SSH_PRIVATE_KEY` : Définit la clé SSH utilisée pour accéder au GitLab de l'Abes (git.abes.fr) afin d'effectuer un commit automatique chaque nuit des documents du site documentation.abes.fr. Ces fichiers sont situés dans le répertoire /opt/pod/abes-documentation-docker/volumes/documentation-web/var_www_html.
 
+## Indexation Swish-e
+
+Le moteur de recherche est basé sur le logiciel **swish-e**, intégré à l'aide de l'image Docker suivante : ``abesesr/swish-e-docker:1.1.1.``
+### Processus d'indexation ###
+'indexation est déclenchée par le script ``/opt/guide/data-swish-e/scripts/indexerGM.sh``. Ce script est exécuté lors du démarrage du conteneur via le Dockerfile. Un délai de quelques secondes est nécessaire lors du lancement du conteneur pour que l'indexation soit finalisée et que le service devienne opérationnel.
+### Réindexation automatique ###
+Une tâche planifiée (cron) est configurée pour réindexer les données tous les soir à 20:30.
+```bash
+30 20 * * * /opt/guide/data-swish-e/scripts/indexerGM.sh >> /var/log/cron.log 2>&1
+```
+Les journaux de cette tâche sont enregistrés dans /var/log/cron.log et sont redirigés vers le collecteur de journaux de Docker
+
+## Supervision
+
+```bash
+# pour visualiser les logs de l'appli
+cd /opt/pod/abes-documentation-docker/
+docker-compose logs -f --tail=100
+```
+Cela va afficher les 100 dernière lignes de logs générées par l'application et toutes les suivantes jusqu'au CTRL+C qui stoppera l'affichage temps réel des logs.
+
 ## Sauvegardes
 
 Les éléments suivants sont à sauvegarder:
