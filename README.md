@@ -12,7 +12,7 @@ Les URLs correspondantes aux déploiements en dev, test et prod de documentation
   - https://documentation-dev.abes.fr : homepage de documentation.abes.fr
 - test :
   - https://documentation-test.abes.fr : homepage de documentation.abes.fr
-- prod
+- prod :
   - https://documentation.abes.fr : homepage de documentation.abes.fr
 
 ## Prérequis
@@ -75,6 +75,7 @@ Pour ajuster l'allocation de ressources pour les conteneurs (par exemple, mémoi
 - `DOCUMENTATION_ENV`: Définit le type d'environnement (dev, test, ou prod).
 - `DOCUMENTATION_SFTP_UID` : Définit l'UID utilisé pour l'accès SFTP. Si SFTP et WebDAV sont tous deux activés, il est recommandé de définir cet UID de manière identique à celui utilisé par WebDAV afin d'éviter les conflits de permissions.
 - `DOCUMENTATION_SFTP_GID` : Définit le GID utilisé pour l'accès SFTP. Si SFTP et WebDAV sont tous deux activés, il est recommandé de définir ce GID de manière identique à celui utilisé par WebDAV afin d'éviter les conflits de permissions.
+- `DOCUMENTATION_WEB_SSH_PRIVATE_KEY` : Définit la clé SSH utilisée pour accéder au GitLab de l'Abes (git.abes.fr) afin d'effectuer un commit automatique chaque nuit des documents du site documentation.abes.fr. Ces fichiers sont situés dans le répertoire /opt/pod/abes-documentation-docker/volumes/documentation-web/var_www_html.
 
 ## Sauvegardes
 
@@ -90,5 +91,5 @@ Les éléments suivants sont à sauvegarder:
   - https://git.abes.fr/sire/documentation-dev.abes.fr
 - test :
   - https://git.abes.fr/sire/documentation-test.abes.fr
-- prod
+- prod :
   - https://git.abes.fr/sire/documentation.abes.fr
