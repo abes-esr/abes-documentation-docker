@@ -92,7 +92,8 @@ services:
     restart: unless-stopped
     mem_limit: ${DOCUMENTATION_SFTP_MEM_LIMIT:-5g}
     cpus: ${DOCUMENTATION_SFTP_CPU_LIMIT:-5}
-    ports: ${DOCUMENTATION_HTTP_PORT}
+    ports:
+      - ${DOCUMENTATION_HTTP_PORT}
     volumes:
       - ./volumes/documentation-web/var_www_html/:/app/html/
     labels:
