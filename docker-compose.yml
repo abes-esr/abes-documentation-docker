@@ -89,6 +89,7 @@ services:
   documentation-api-publish:
     container_name: documentation-api-publish
     image: abesesr/documentation:${DOCUMENTATION_API_PUBLISH_VERSION}
+    user: "82:82"
     restart: unless-stopped
     mem_limit: ${DOCUMENTATION_SFTP_MEM_LIMIT:-5g}
     cpus: ${DOCUMENTATION_SFTP_CPU_LIMIT:-5}
@@ -112,6 +113,7 @@ services:
       GENERATION_SKIN: ${DOCUMENTATION_GENERATION_SKIN}
       GENERATION_ZIP_PATH: ${DOCUMENTATION_GENERATION_ZIP_PATH}
       DEPLOYMENT_LOCAL_PATH: ${DOCUMENTATION_DEPLOYMENT_LOCAL_PATH}
+      GENERATION_SCENARI_API_FOLDER: ${DOCUMENTATION_API_PUBLISH_VERSION}
 
 
   #######################################
