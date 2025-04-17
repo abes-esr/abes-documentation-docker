@@ -101,8 +101,8 @@ services:
       # pour envoyer les logs dans le puits de log de l'abes
       - "co.elastic.logs/enabled=true"
       - "co.elastic.logs/processors.add_fields.target="
-      - "co.elastic.logs/processors.add_fields.fields.abes_appli=documentation"
-      - "co.elastic.logs/processors.add_fields.fields.abes_middleware=nginx"
+      - "co.elastic.logs/processors.add_fields.fields.abes_appli=documentation-api-publish"
+      - "co.elastic.logs/processors.add_fields.fields.abes_middleware=adhoc"
       # pour que les mises à jour de cette image soient auto-déployées par watchtower
       - "com.centurylinklabs.watchtower.scope=documentation-watchtower-scope"
     environment:
