@@ -89,7 +89,7 @@ services:
   documentation-api-publish:
     container_name: documentation-api-publish
     image: abesesr/documentation:${DOCUMENTATION_API_PUBLISH_VERSION}
-    user: "82:82"
+    user: "root:82"
     restart: unless-stopped
     mem_limit: ${DOCUMENTATION_SFTP_MEM_LIMIT:-5g}
     cpus: ${DOCUMENTATION_SFTP_CPU_LIMIT:-5}
