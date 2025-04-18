@@ -145,3 +145,4 @@ services:
       REPO_PASS: ${DOCUMENTATION_WATCHTOWER_DOCKERHUB_PASS}
     labels:
       - "com.centurylinklabs.watchtower.scope=documentation-watchtower-scope"
+
