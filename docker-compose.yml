@@ -97,6 +97,7 @@ services:
       - ${DOCUMENTATION_API_PUBLISH_HTTP_PORT}
     volumes:
       - ./volumes/documentation-web/var_www_html/:/app/html/
+      - /etc/localtime:/etc/localtime:ro
     labels:
       # pour envoyer les logs dans le puits de log de l'abes
       - "co.elastic.logs/enabled=true"
