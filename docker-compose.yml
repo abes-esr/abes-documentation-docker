@@ -69,7 +69,7 @@ services:
       SFTP_GID : ${DOCUMENTATION_SFTP_GID}
     volumes:
       - ./volumes/documentation-web/var_www_html/:/home/${DOCUMENTATION_SFTP_USERNAME}/sftp/html/
-      - documentation-api-publish-sauvegardes-automatiques:/home/${DOCUMENTATION_SFTP_USERNAME}/sftp/sauvegardes_automatiques
+      - documentation-api-publish-sauvegardes-automatiques:/home/${DOCUMENTATION_SFTP_USERNAME}/sftp/sauvegardes_automatiques/${DOCUMENTATION_ENV}
   documentation-rp:
     hostname: documentation-rp
     container_name: documentation-rp
@@ -99,7 +99,7 @@ services:
     volumes:
       - ./volumes/documentation-web/var_www_html/:/app/html/
       - /etc/localtime:/etc/localtime:ro
-      - documentation-api-publish-sauvegardes-automatiques:/app/sauvegardes_automatiques
+      - documentation-api-publish-sauvegardes-automatiques:/app/sauvegardes_automatiques/
     labels:
       # pour envoyer les logs dans le puits de log de l'abes
       - "co.elastic.logs/enabled=true"
