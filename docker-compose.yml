@@ -69,7 +69,7 @@ services:
       SFTP_GID : ${DOCUMENTATION_SFTP_GID}
     volumes:
       - ./volumes/documentation-web/var_www_html/:/home/${DOCUMENTATION_SFTP_USERNAME}/sftp/html/
-      - documentation-api-publish-sauvegardes-automatiques:/home/${DOCUMENTATION_SFTP_USERNAME}/sftp/sauvegardes_automatiques/${DOCUMENTATION_ENV}
+      - documentation-api-publish-sauvegardes-automatiques:/home/${DOCUMENTATION_SFTP_USERNAME}/sftp/sauvegardes_automatiques/
   documentation-rp:
     hostname: documentation-rp
     container_name: documentation-rp
