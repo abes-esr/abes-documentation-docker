@@ -152,9 +152,9 @@ services:
       - "com.centurylinklabs.watchtower.scope=documentation-watchtower-scope"
 
 volumes:
-  - documentation-api-publish-sauvegardes-automatiques:
-      driver: local
-      driver_opts:
-        type: nfs
-        o: "addr=methana.v102.abes.fr,nolock,soft,rw,nfsvers=4"
-        device: :/pool_SAS_3/abes-documentation-web
+  documentation-api-publish-sauvegardes-automatiques:
+    driver: local
+    driver_opts:
+      type: nfs
+      o: "addr=methana.v102.abes.fr,nolock,soft,rw,nfsvers=4"
+      device: ":/pool_SAS_3/abes-documentation-web"
