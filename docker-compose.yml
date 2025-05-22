@@ -98,6 +98,7 @@ services:
     volumes:
       - ./volumes/documentation-web/var_www_html/:/app/html/
       - /etc/localtime:/etc/localtime:ro
+      - documentation-api-publish-sauvegardes-automatiques:/app/html/sauvegardes_automatiques
     labels:
       # pour envoyer les logs dans le puits de log de l'abes
       - "co.elastic.logs/enabled=true"
@@ -151,3 +152,10 @@ services:
     labels:
       - "com.centurylinklabs.watchtower.scope=documentation-watchtower-scope"
 
+  volumes:
+    - documentation-api-publish-sauvegardes-automatiques:
+        driver: local
+        driver_opts:
+          type: nfs
+          o: "addr=methana.v102.abes.fr,nolock,soft,rw,nfsvers=4"
+          device: :/pool_SAS_3/abes-documentation-web
