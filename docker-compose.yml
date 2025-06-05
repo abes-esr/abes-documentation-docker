@@ -157,4 +157,4 @@ volumes:
     driver_opts:
       type: nfs
       o: "addr=methana.v102.abes.fr,nolock,soft,rw,nfsvers=4"
-      device: ":/pool_SAS_3/abes-documentation-web"
+      device: ":/pool_SAS_3/abes-documentation-web-${DOCUMENTATION_ENV}"
