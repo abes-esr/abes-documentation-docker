@@ -69,6 +69,7 @@ services:
       SFTP_GID : ${DOCUMENTATION_SFTP_GID}
     volumes:
       - ./volumes/documentation-web/var_www_html/:/home/${DOCUMENTATION_SFTP_USERNAME}/sftp/html/
+      - documentation-api-publish-sauvegardes-automatiques:/home/${DOCUMENTATION_SFTP_USERNAME}/sftp/sauvegardes_automatiques/
   documentation-rp:
     hostname: documentation-rp
     container_name: documentation-rp
@@ -98,6 +99,7 @@ services:
     volumes:
       - ./volumes/documentation-web/var_www_html/:/app/html/
       - /etc/localtime:/etc/localtime:ro
+      - documentation-api-publish-sauvegardes-automatiques:/app/sauvegardes_automatiques/
     labels:
       # pour envoyer les logs dans le puits de log de l'abes
       - "co.elastic.logs/enabled=true"
@@ -109,8 +111,6 @@ services:
     environment:
       DOCUMENTATION_API_PUBLISH_USER: ${DOCUMENTATION_API_PUBLISH_USER}
       DOCUMENTATION_API_PUBLISH_PASSWORD: ${DOCUMENTATION_API_PUBLISH_PASSWORD}
-      DOCUMENTATION_API_PUBLISH_WORKSHOP: ${DOCUMENTATION_API_PUBLISH_WORKSHOP}
-      DOCUMENTATION_API_PUBLISH_GENERATOR: ${DOCUMENTATION_API_PUBLISH_GENERATOR}
       DOCUMENTATION_API_PUBLISH_SKIN: ${DOCUMENTATION_API_PUBLISH_SKIN}
       DOCUMENTATION_API_PUBLISH_ZIP_PATH: ${DOCUMENTATION_API_PUBLISH_ZIP_PATH}
       DOCUMENTATION_API_PUBLISH_LOCAL_PATH: ${DOCUMENTATION_API_PUBLISH_LOCAL_PATH}
@@ -151,3 +151,10 @@ services:
     labels:
       - "com.centurylinklabs.watchtower.scope=documentation-watchtower-scope"
 
+volumes:
+  documentation-api-publish-sauvegardes-automatiques:
+    driver: local
+    driver_opts:
+      type: nfs
+      o: "addr=methana.v102.abes.fr,nolock,soft,rw,nfsvers=4"
+      device: ":/pool_SAS_3/abes-documentation-web-${DOCUMENTATION_ENV}"
