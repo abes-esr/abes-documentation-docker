@@ -1,5 +1,10 @@
 FROM abesesr/swish-e-docker:1.1.1
 
+# Les depots de debian 10 Buster ont migré dans archive
+RUN sed -i s/deb.debian.org/archive.debian.org/g /etc/apt/sources.list
+RUN sed -i s/security.debian.org/archive.debian.org/g /etc/apt/sources.list
+RUN sed -i s/deb.debian.org/archive.debian.org/g /etc/apt/sources.list
+
 RUN apt-get update && apt-get -y install cron
 
 # Copy swish-e-cron file to the cron.d directory
