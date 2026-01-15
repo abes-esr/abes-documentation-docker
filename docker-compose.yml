@@ -128,7 +128,7 @@ services:
   # ce conteneur devra donc être supprimé une fois que le déploiement Ansible sera en place
   # plus d'info : https://containrrr.dev/watchtower
   documentation-watchtower:
-    image: containrrr/watchtower:1.4.0
+    image: nickfedor/watchtower:1.13.1
     container_name: documentation-watchtower
     mem_limit: ${MEM_LIMIT:-5g}
     memswap_limit: ${MEM_LIMIT:-5g}
