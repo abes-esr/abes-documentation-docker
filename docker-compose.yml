@@ -106,8 +106,9 @@ services:
       - "co.elastic.logs/processors.add_fields.target="
       - "co.elastic.logs/processors.add_fields.fields.abes_appli=documentation-api-publish"
       - "co.elastic.logs/processors.add_fields.fields.abes_middleware=adhoc"
-      # pour que les mises à jour de cette image soient auto-déployées par watchtower
-      - "com.centurylinklabs.watchtower.scope=documentation-watchtower-scope"
+      # surveillance de l'image par WhatsUpDocker
+      - "wud.watch.digest=true"
+      - "wud.watch=true"
     environment:
       DOCUMENTATION_API_PUBLISH_USER: ${DOCUMENTATION_API_PUBLISH_USER}
       DOCUMENTATION_API_PUBLISH_PASSWORD: ${DOCUMENTATION_API_PUBLISH_PASSWORD}
